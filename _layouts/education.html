@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>Education - {{ page.title }}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+</head>
+<body>
+    <header>
+        <h1>{{ site.title }}</h1>
+        <h2>Education</h2>
+    </header>
+    <main>
+        <ul>
+            {% for education in site.data.education %}
+            <li>
+                <h3>{{ education.degree }} in {{ education.field }}</h3>
+                <p>{{ education.institution }}</p>
+                <p>{{ education.start_date }} - {{ education.end_date }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </main>
+    <footer>
+        <p>{{ site.description }}</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,49 @@
+title: "Valentin Kriegmair's Resume"
+description: "A personal resume hosted on GitHub Pages using Jekyll."
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://yourusername.github.io" # the base hostname & protocol for your site
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Exclude unnecessary files and folders from the build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - _site/
+
+# Collections for resume sections
+data_source: "_data"
+collections:
+  education:
+    output: true
+  experience:
+    output: true
+  projects:
+    output: true
+
+# Defaults for rendering data
+defaults:
+  - scope:
+      path: ""
+      type: "education"
+    values:
+      layout: "education"
+  - scope:
+      path: ""
+      type: "experience"
+    values:
+      layout: "experience"
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "projects"
+
+# Permalinks
+permalink: pretty

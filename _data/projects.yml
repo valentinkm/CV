@@ -1,0 +1,15 @@
+- name: Statistical Data Analysis Project
+  description: Developed a statistical data analysis pipeline using MATLAB for processing MRI and CT scan data.
+  technologies: [MATLAB, SPM12]
+  start_date: 02.2022
+  end_date: 08.2022
+- name: Psychometric Data Visualization
+  description: Created visualizations and conducted analysis of psychometric and physiological data for the Uni Klinik Köln.
+  technologies: [R, ggplot2]
+  start_date: 07.03.2022
+  end_date: 18.04.2022
+- name: Personal Blog on Psychology and Philosophy
+  description: Authored articles combining psychological and philosophical perspectives on human behavior.
+  technologies: [Markdown, Jekyll, GitHub Pages]
+  start_date: 10.2020
+  end_date: Present

@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title>Experience - {{ page.title }}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+</head>
+<body>
+    <header>
+        <h1>{{ site.title }}</h1>
+        <h2>Experience</h2>
+    </header>
+    <main>
+        <ul>
+            {% for job in site.data.experience %}
+            <li>
+                <h3>{{ job.position }} at {{ job.company }}</h3>
+                <p>{{ job.department }}</p>
+                <p>{{ job.start_date }} - {{ job.end_date }}</p>
+                <ul>
+                    {% for responsibility in job.responsibilities %}
+                    <li>{{ responsibility }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+            {% endfor %}
+        </ul>
+    </main>
+    <footer>
+        <p>{{ site.description }}</p>
+    </footer>
+</body>
+</html>

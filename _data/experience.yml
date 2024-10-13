@@ -1,0 +1,18 @@
+- company: LMU München
+  position: Wissenschaftliche Hilfskraft
+  department: Lehrstuhl für Neuropsychologie
+  start_date: 02.2022
+  end_date: 08.2022
+  responsibilities:
+    - MRT and CT data processing in MATLAB (Statistical Parametric Mapping SPM12)
+- company: Uni Klinik Köln
+  position: Forschungspraktikant
+  department: Lehrstuhl für Biologische Kinder- und Jugendpsychiatrie
+  start_date: 07.03.2022
+  end_date: 18.04.2022
+  responsibilities:
+    - Data preparation, visualization, and analysis of physiological and psychometric data
+- company: Work and Travel Australien
+  position: Work and Travel Participant
+  start_date: 07.2018
+  end_date: 07.2019
