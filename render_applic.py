@@ -51,6 +51,72 @@ current_date = datetime.now().strftime("%B %d, %Y")
 # Setup Jinja2 environment for HTML templating
 env = Environment(loader=FileSystemLoader('.'))
 
+# Load cover letter from external markdown file
+with open('letter.md', 'r', encoding='utf-8') as f:
+    cover_letter_text = f.read()
+
+# Convert the markdown text to HTML using a basic replacement approach
+cover_letter_html = re.sub(r'\[(.+?)\]\((https?://\S+)\)', r'<a href="\2" target="_blank">\1</a>', cover_letter_text).replace('\n', '<br>')
+cover_letter_template_str = f'''
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cover Letter - Valentin Kriegmair</title>
+    <meta charset="UTF-8">
+    <style>
+        body {{
+            font-family: 'Helvetica', sans-serif;
+            color: #333;
+            background-color: #ffffff;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }}
+        .letterhead {{
+            text-align: left;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+        }}
+        .letterhead p {{
+            margin: 2px 0;
+            font-weight: bold;
+        }}
+        .recipient-info {{
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }}
+    </style>
+</head>
+<body>
+    <div class="letterhead">
+        <p>Valentin Kriegmair</p>
+        <p>Urbanstrasse 36b | 10967 Berlin</p>
+        <p>valentin.kriegmair@gmail.com | 015119090065</p>
+        <p>Date: {current_date}</p>
+    </div>
+    <div class="recipient-info">
+        <p>Dr. Dirk Wulff</p>
+        <p>Center for Adaptive Rationality</p>
+        <p>Max Planck Institute for Human Development</p>
+        <p>Lentzeallee 94, 14195 Berlin, Germany</p>
+    </div>
+    <div class="cover-letter">
+        {cover_letter_html}
+    </div>
+</body>
+</html>
+'''
+
+cover_letter_template = env.from_string(cover_letter_template_str)
+cover_letter_output = cover_letter_template.render(current_date=current_date)
+
+# Save the rendered cover letter to a file
+with open('cover_letter.html', 'w', encoding='utf-8') as f:
+    f.write(cover_letter_output)
+
+print("Cover letter generated as 'cover_letter.html'")
+
 # Render the CV HTML
 template_str = '''
 <!DOCTYPE html>
@@ -137,9 +203,6 @@ template_str = '''
     </table>
     <br>
     {% endfor %}
-    <div style="text-align: center; margin-top: 20px;">
-        <a href="cv.pdf" target="_blank">Download PDF Version of CV</a>
-    </div>
 </body>
 </html>
 '''
@@ -153,26 +216,29 @@ with open('cv.html', 'w', encoding='utf-8') as f:
 
 print("HTML CV generated as 'cv.html'")
 
-# Convert the CV HTML file to PDF using pdfkit
+# Convert the cover letter and CV HTML files to PDFs using pdfkit
 try:
     options = {
         'quiet': '',
         'enable-local-file-access': None,
         'encoding': 'UTF-8'
     }
+    pdfkit.from_file('cover_letter.html', 'cover_letter.pdf', options=options)
+    print("Cover letter PDF generated as 'cover_letter.pdf'")
     pdfkit.from_file('cv.html', 'cv.pdf', options=options)
     print("CV PDF generated as 'cv.pdf'")
 except Exception as e:
-    print(f"An error occurred while generating the PDF: {e}")
+    print(f"An error occurred while generating the PDFs: {e}")
 
 # List all PDF files in the certificates directory
 certificates_dir = 'certificates'
 certificate_pdfs = [os.path.join(certificates_dir, f) for f in os.listdir(certificates_dir) if f.endswith('.pdf')]
 
-# Merge the CV PDF with additional PDF files into the final PDF
-pdf_files = ['cv.pdf'] + certificate_pdfs
+# Merge the cover letter and CV PDFs with additional PDF files into the final PDF
+pdf_files = ['cover_letter.pdf', 'cv.pdf'] + certificate_pdfs
 
 merger = PdfMerger()
+
 
 for pdf_file in pdf_files:
     if os.path.exists(pdf_file):
