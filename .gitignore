@@ -1,0 +1,5 @@
+certificates/*
+*.html
+*.pdf
+*.md
+.DS_Store
