@@ -1,10 +1,7 @@
 import pandas as pd
 from jinja2 import Environment, FileSystemLoader
-import os
 import re
 import pdfkit
-from datetime import datetime
-from PyPDF2 import PdfMerger
 
 # Load CSV data
 csv_file = 'cv_data.csv'
@@ -44,9 +41,6 @@ def organize_data(df):
     return sections
 
 sections = organize_data(df)
-
-# Get current date
-current_date = datetime.now().strftime("%B %d, %Y")
 
 # Setup Jinja2 environment for HTML templating
 env = Environment(loader=FileSystemLoader('.'))
@@ -164,23 +158,3 @@ try:
     print("CV PDF generated as 'cv.pdf'")
 except Exception as e:
     print(f"An error occurred while generating the PDF: {e}")
-
-# List all PDF files in the certificates directory
-certificates_dir = 'certificates'
-certificate_pdfs = [os.path.join(certificates_dir, f) for f in os.listdir(certificates_dir) if f.endswith('.pdf')]
-
-# Merge the CV PDF with additional PDF files into the final PDF
-pdf_files = ['cv.pdf'] + certificate_pdfs
-
-merger = PdfMerger()
-
-for pdf_file in pdf_files:
-    if os.path.exists(pdf_file):
-        merger.append(pdf_file)
-
-# Save the merged PDF
-output_pdf = 'kriegmair_application.pdf'
-merger.write(output_pdf)
-merger.close()
-
-print(f"Final application PDF generated as '{output_pdf}'")
