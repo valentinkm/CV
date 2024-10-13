@@ -1,0 +1,40 @@
+name: Generate and Publish CV
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**.html'
+      - '**.csv'
+      - '**.py'
+      - '**.css'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install Dependencies
+      run: |
+        pip install pandas jinja2 weasyprint
+
+    - name: Render HTML CV
+      run: python render_cv.py
+
+    - name: Generate PDF from HTML
+      run: weasyprint index.html cv.pdf
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./
