@@ -1,0 +1,64 @@
+/* General Styling */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0 auto;
+    max-width: 900px;
+    line-height: 1.4;
+    color: #333;
+    background-color: #ffffff; /* Set background to white */
+    padding: 10px;
+}
+
+/* Header Styling */
+h1 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #1a1a1a;
+}
+
+.contact-info {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: #666;
+}
+
+/* Section Styling */
+h2 {
+    font-size: 1.5em;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    color: #1a1a1a;
+}
+
+table {
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 8px;
+    vertical-align: top;
+    font-size: 0.9em;
+}
+
+/* Remove alternating background color for rows */
+td:first-child {
+    font-weight: bold;
+    width: 30%;
+}
+
+/* Two-column layout */
+.two-column {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.column {
+    flex: 0 0 48%;
+    box-sizing: border-box;
+}

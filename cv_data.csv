@@ -1,0 +1,22 @@
+Section,Subsection,Detail
+Personal Information,Date of Birth,09/05/1996 in Munich
+Personal Information,Nationality,German
+Personal Information,Marital Status,Single
+Education,Since 10/2022,"Humboldt University of Berlin - Master of Science: Psychology"
+Education,10/2019 – 07/2022,"Ludwig Maximilian University of Munich - Degree: Bachelor of Science: Psychology (Grade: 1.25)"
+Education,10/2017 – 07/2018,"Ludwig Maximilian University of Munich - Bachelor of Arts: Philosophy (major) and Economics (minor)"
+Education,10/2016 – 07/2017,"Ludwig Maximilian University of Munich - Bachelor of Science: Physics"
+Research Experience,02/2022 – 08/2022,"Student Research Assistant, Chair of Neuropsychology, LMU Munich - Worked on MRI and CT data processing using MATLAB (Statistical Parametric Mapping SPM12). Assisted in data collection and processing for studies on neuropsychological processes."
+Research Experience,07/03/2022 – 18/04/2022,"Research Internship, Chair of Biological Child and Adolescent Psychiatry, University Clinic Cologne - Processed and analyzed physiological and psychometric data. Assisted in creating data visualization tools to improve communication of research findings."
+Research Experience,03/2023 – 08/2023,"Intern at Max Planck Institute for Human Development (MPIB) in the Formal Methods Group - Developed a user-friendly interface and sampling tools for the Taxonomy.jl project, a comprehensive database of Structural Equation Models (SEMs). Created an automated process using GitHub Actions to generate meeting summaries, leveraging LLMs for efficient team communication."
+Research Experience,09/2023 – 09/2024,"Student Research Assistant at MPIB in the Formal Methods Group - Continued development of Taxonomy.jl and worked on a Master's thesis on Adversarial Collaboration for Simulation Studies."
+Skills and Knowledge,Programming Languages,"Proficient in Python, R, and Julia. Demonstrated rapid learning capabilities and adaptability by acquiring new programming languages like Julia within a short timeframe."
+Skills and Knowledge,Natural Language Processing,"Experience in utilizing large language models for task automation, including summarizing meetings and started exploring open source applications of LLMs for meta research."
+Skills and Knowledge,Version Control and Collaboration,"Proficient in Git and familiar with continuous integration practices and Docker. Worked on collaborative projects using version control tools to manage repositories and streamline and dockerize workflows."
+Projects,[AdversarialSimulation](https://github.com/valentinkm/AdversarialSimulation),"Master's thesis (in progress). Developed and evaluated a framework for adversarial collaboration in simulation studies to improve generalizability and rigor in Monte Carlo simulations: Comparing structural after measurement to standard SEM estimation."
+Projects,[Taxonomy.jl](https://github.com/formal-methods-mpi/Taxonomy.jl),"Contributed to a comprehensive database for Structural Equation Models, focusing on making SEMs more accessible and useful for simulation studies."
+Projects,[MinervasMemo](https://github.com/valentinkm/MinervasMemo/tree/summarization),"Created an automated workflow using GitHub Actions to summarize team meetings. Leveraged LLMs to ensure concise and informative summaries, improving team productivity and communication."
+Projects,Publication,"First contact with open science and the peer review process: Authored and published a replication paper during my Bachelor's on biomarkers for depression. [Kriegmair et al. 2023](https://doi.org/10.1080/15622975.2023.2203222)"
+Skills & Interests,Languages,"German (native), English (fluent, two years abroad: one year boarding school in the UK, one year work & travel in Australia)"
+Skills & Interests, Research Interests,"Applications of LLMs in Psychology and Cognitive Science, Meta-science, Philosophy of Science, Behavioral Science"
+References,Dr. Aaron Peikert,"Principal Investigator, Max Planck Institute for Human Development, Berlin. Contact: peikert@mpib-berlin.mpg.de"
