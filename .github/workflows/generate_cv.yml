@@ -20,7 +20,7 @@ jobs:
 
     - name: Install Dependencies
       run: |
-        pip install pandas jinja2 weasyprint pdfkit
+        pip install pandas jinja2 weasyprint pdfkit PyPDF2
 
     - name: Render HTML CV
       run: python render_cv.py
