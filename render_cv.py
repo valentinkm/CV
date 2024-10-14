@@ -27,7 +27,7 @@ def organize_data(df):
             link_text = link_match_subsection.group(1)
             link_url = link_match_subsection.group(2)
             if 'github.com' in link_url:
-                subsection = re.sub(r'\[(.+)\]\((https?://\S+)\)', f'<a href="{link_url}" target="_blank">{link_text} <img src="https://img.icons8.com/ios-glyphs/30/000000/github.png" alt="GitHub" width="16" height="16" alt="GitHub" width="16" height="16"></a>', subsection)
+                subsection = re.sub(r'\[(.+)\]\((https?://\S+)\)', f'<a href="{link_url}" target="_blank">{link_text} <img src="github.png" alt="GitHub" width="16" height="16"></a>', subsection)
             else:
                 subsection = re.sub(r'\[(.+)\]\((https?://\S+)\)', f'<a href="{link_url}" target="_blank">{link_text}</a>', subsection)
 
@@ -114,8 +114,8 @@ template_str = '''
         <p>Urbanstrasse 36b | 10967 Berlin</p>
         <p>valentin.kriegmair@gmail.com | 015119090065</p>
         <p>
-            <a href="https://github.com/valentinkm" target="_blank"><img src="https://img.icons8.com/ios-glyphs/30/000000/github.png" alt="GitHub"> GitHub</a>
-            <a href="https://www.linkedin.com/in/valentin-kriegmair-a12b4b269" target="_blank" style="margin-left: 15px;"><img src="https://img.icons8.com/ios-glyphs/30/000000/linkedin.png" alt="LinkedIn" width="16" height="16" alt="LinkedIn"> LinkedIn</a>
+            <a href="https://github.com/valentinkm" target="_blank"><img src="github.png" alt="GitHub" width="16" height="16"> GitHub</a>
+            <a href="https://www.linkedin.com/in/valentin-kriegmair-a12b4b269" target="_blank" style="margin-left: 15px;"><img src="linkedin.png" alt="LinkedIn" width="16" height="16"> LinkedIn</a>
         </p>
     </div>
 
