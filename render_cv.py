@@ -27,7 +27,7 @@ def organize_data(df):
             link_text = link_match_subsection.group(1)
             link_url = link_match_subsection.group(2)
             if 'github.com' in link_url:
-                subsection = re.sub(r'\[(.+)\]\((https?://\S+)\)', f'<a href="{link_url}" target="_blank">{link_text} <img src="github.png" alt="GitHub" width="16" height="16"></a>', subsection)
+                subsection = re.sub(r'\[(.+)\]\((https?://\S+)\)', f'<a href="{link_url}" target="_blank">{link_text} <img src="https://img.icons8.com/ios-glyphs/30/000000/github.png" alt="GitHub" width="16" height="16"></a>', subsection)
             else:
                 subsection = re.sub(r'\[(.+)\]\((https?://\S+)\)', f'<a href="{link_url}" target="_blank">{link_text}</a>', subsection)
 
@@ -44,6 +44,14 @@ sections = organize_data(df)
 
 # Setup Jinja2 environment for HTML templating
 env = Environment(loader=FileSystemLoader('.'))
+
+# Render the CV HTML
+remove_icons = False
+
+# Check if the rendering is for PDF
+pdf_rendering = True
+if pdf_rendering:
+    remove_icons = True
 
 # Render the CV HTML
 template_str = '''
@@ -114,8 +122,8 @@ template_str = '''
         <p>Urbanstrasse 36b | 10967 Berlin</p>
         <p>valentin.kriegmair@gmail.com | 015119090065</p>
         <p>
-            <a href="https://github.com/valentinkm" target="_blank"><img src="github.png" alt="GitHub" width="16" height="16"> GitHub</a>
-            <a href="https://www.linkedin.com/in/valentin-kriegmair-a12b4b269" target="_blank" style="margin-left: 15px;"><img src="linkedin.png" alt="LinkedIn" width="16" height="16"> LinkedIn</a>
+            <a href="https://github.com/valentinkm" target="_blank">GitHub{% if not remove_icons %}<img src="https://img.icons8.com/ios-glyphs/30/000000/github.png" alt="GitHub" width="16" height="16">{% endif %}</a>
+            <a href="https://www.linkedin.com/in/valentin-kriegmair-a12b4b269" target="_blank" style="margin-left: 15px;">LinkedIn{% if not remove_icons %}<img src="https://img.icons8.com/ios-glyphs/30/000000/linkedin.png" alt="LinkedIn" width="16" height="16">{% endif %}</a>
         </p>
     </div>
 
@@ -139,7 +147,7 @@ template_str = '''
 '''
 
 html_template = env.from_string(template_str)
-html_output = html_template.render(sections=sections)
+html_output = html_template.render(sections=sections, remove_icons=remove_icons)
 
 # Save the rendered HTML to a file
 with open('cv.html', 'w', encoding='utf-8') as f:
